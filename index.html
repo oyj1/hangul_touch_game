@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+  <title>한글 터치 쓰기 (알파)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>한글 터치 쓰기</h1>
+      <div class="progress"><span id="stageLabel">가</span> <span id="stepLabel">1/4</span></div>
+    </header>
+
+    <main>
+      <section class="left">
+        <canvas id="board" width="600" height="600"></canvas>
+        <div class="controls">
+          <button id="btnReset">다시</button>
+          <button id="btnHint">힌트</button>
+          <label class="select">
+            난이도
+            <select id="difficulty">
+              <option value="easy">쉬움</option>
+              <option value="normal" selected>보통</option>
+              <option value="hard">어려움</option>
+            </select>
+          </label>
+          <button id="btnPrev">이전</button>
+          <button id="btnNext" disabled>다음</button>
+        </div>
+        <p class="tip" id="tip">점선 위를 천천히 따라 그려봐요.</p>
+      </section>
+
+      <section class="right">
+        <div class="card">
+          <h3>학습 목표</h3>
+          <ul>
+            <li>획순대로 따라 그리기</li>
+            <li>완료 시 보상 스티커 획득!</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>단어 진행</h3>
+          <ol id="wordSteps">
+            <li class="active">가</li>
+            <li>강</li>
+            <li>강아</li>
+            <li>강아지</li>
+          </ol>
+          <div class="word-visual">
+            <div id="dogImg" aria-label="강아지 그림">🐶</div>
+            <div class="caption">강아지</div>
+          </div>
+        </div>
+        <div class="reward" id="reward" hidden>
+          <div class="confetti">✨</div>
+          <p><strong>잘했어요!</strong> 스티커를 받았어요 🐾</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <small>© 2025 Hangul Touch Alpha · 오프라인에서도 동작</small>
+    </footer>
+  </div>
+
+  <script src="src/app.js"></script>
+</body>
+</html>
